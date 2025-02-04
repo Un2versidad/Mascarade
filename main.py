@@ -308,13 +308,13 @@ class Juego:
 
     # Métodos estáticos para habilidades (sin cambios significativos)
     @staticmethod
-    def habilidad_juez(jugador, jugadores, corte):
+    def habilidad_juez(jugador, corte):
         cantidad = corte.retirar()
         jugador.oro += cantidad
         print(f"{jugador.nombre} recibe {cantidad} monedas de oro del Palacio de Justicia.")
 
     @staticmethod
-    def habilidad_obispo(jugador, jugadores, corte):
+    def habilidad_obispo(jugador, jugadores):
         jugador_mas_rico = max(jugadores, key=lambda j: j.oro)
         cantidad = 2
         print(f"{jugador.nombre} toma {cantidad} monedas de {jugador_mas_rico.nombre}.")
@@ -322,17 +322,17 @@ class Juego:
         jugador.oro += cantidad
 
     @staticmethod
-    def habilidad_rey(jugador, jugadores, corte):
+    def habilidad_rey(jugador):
         jugador.oro += 3
         print(f"{jugador.nombre} recibe 3 monedas del banco.")
 
     @staticmethod
-    def habilidad_reina(jugador, jugadores, corte):
+    def habilidad_reina(jugador):
         jugador.oro += 2
         print(f"{jugador.nombre} recibe 2 monedas del banco.")
 
     @staticmethod
-    def habilidad_ladron(jugador, jugadores, corte):
+    def habilidad_ladron(jugador, jugadores):
         jugadores_adyacentes = [j for j in jugadores if j != jugador and j.esta_vivo()]
         if len(jugadores_adyacentes) >= 2:
             objetivo1, objetivo2 = random.sample(jugadores_adyacentes, 2)
@@ -342,7 +342,7 @@ class Juego:
             jugador.oro += 2
 
     @staticmethod
-    def habilidad_bufon(jugador, jugadores, corte):
+    def habilidad_bufon(jugador, jugadores):
         print(f"{jugador.nombre} usa la habilidad del Bufón.")
         jugador.oro += 1
         print(f"{jugador.nombre} recibe 1 moneda de oro.")
@@ -372,7 +372,7 @@ class Juego:
             print("No se intercambiaron cartas.")
 
     @staticmethod
-    def habilidad_bruja(jugador, jugadores, corte):
+    def habilidad_bruja(jugador, jugadores):
         print(f"{jugador.nombre} usa la habilidad de la Bruja.")
         print("Selecciona un jugador para intercambiar fortunas:")
         for idx, j in enumerate(jugadores):
@@ -390,7 +390,7 @@ class Juego:
             print("Selección no válida. No se realizará ningún intercambio.")
 
     @staticmethod
-    def habilidad_espia(jugador, jugadores, corte):
+    def habilidad_espia(jugador, jugadores):
         print(f"{jugador.nombre} usa la habilidad del Espía.")
         print(f"Tu carta: {jugador.cartas[0]}")
         print("Selecciona un jugador para ver su carta:")
@@ -413,7 +413,7 @@ class Juego:
             print("Selección no válida. No se realizará ninguna acción.")
 
     @staticmethod
-    def habilidad_inquisidor(jugador, jugadores, corte):
+    def habilidad_inquisidor(jugador, jugadores):
         print(f"{jugador.nombre} usa la habilidad del Inquisidor.")
         print("Selecciona un jugador para interrogarlo:")
         for idx, j in enumerate(jugadores):
@@ -453,7 +453,7 @@ class Juego:
             print("Selección no válida. No se realizará ninguna acción.")
 
     @staticmethod
-    def habilidad_campesino(jugador, jugadores, corte):
+    def habilidad_campesino(jugador, jugadores):
         print(f"{jugador.nombre} usa la habilidad del Campesino.")
         jugador.oro += 1
         print(f"{jugador.nombre} recibe 1 moneda de oro.")
@@ -467,7 +467,7 @@ class Juego:
                     print(f"{j.nombre} recibe 2 monedas de oro adicionales.")
 
     @staticmethod
-    def habilidad_tramposo(jugador, jugadores, corte):
+    def habilidad_tramposo(jugador):
         if jugador.oro >= 10:
             print(f"{jugador.nombre} ha ganado el juego como tramposo!")
             return True
@@ -476,7 +476,7 @@ class Juego:
             return False
 
     @staticmethod
-    def habilidad_viuda(jugador, jugadores, corte):
+    def habilidad_viuda(jugador):
         a_pagar = 10 - jugador.oro
         if a_pagar > 0:
             jugador.oro += a_pagar
