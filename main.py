@@ -12,7 +12,6 @@ class Carta:
     def __str__(self):
         return self.nombre
 
-
 class Jugador:
     def __init__(self, nombre):
         self.nombre = nombre
@@ -25,7 +24,6 @@ class Jugador:
     def __str__(self):
         return f"{self.nombre} (Oro: {self.oro})"
 
-
 class Corte:
     def __init__(self):
         self.total_oro = 0
@@ -37,7 +35,6 @@ class Corte:
         cantidad = self.total_oro
         self.total_oro = 0
         return cantidad
-
 
 class Juego:
     def __init__(self):
@@ -491,7 +488,6 @@ class Juego:
             print(f"{jugador.nombre} recibe {a_pagar} monedas del banco, llevando su fortuna a 10 monedas en total.")
         else:
             print(f"{jugador.nombre} ya tiene suficiente oro.")
-
 
 if __name__ == "__main__":
     juego = Juego()
