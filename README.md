@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/d5fbdf21-dd08-4996-a538-ac40b82029cf)
+
+
 # 🎴 **Mascarade** (Estructura de Datos) 🤖
 
 **Mascarade** es un emocionante juego de engaño y deducción para 2 a 13 jugadores 👥, diseñado por Bruno Faidutti 🎩. En este proyecto, se implementa el juego utilizando estructuras de datos en Python 🐍 para manejar jugadores, cartas 🃏 y las reglas del juego.
