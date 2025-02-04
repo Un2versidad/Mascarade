@@ -1,6 +1,6 @@
 # 🎴 Mascarade (Estructura de Datos)
 
-Este proyecto es una implementación de un juego de cartas en Python. Se usan listas, clases y objetos para manejar jugadores, cartas y las reglas del juego. Además, se aprovechan estructuras como pilas y colas de manera implícita para hacer todo más dinámico.
+Este proyecto es una implementación de un juego de cartas (Mascarade) en Python. Se usan listas, clases y objetos para manejar jugadores, cartas y las reglas del juego. Además, se aprovechan estructuras como pilas y colas de manera implícita para hacer todo más dinámico.
 
 ## 📋 Listas en el Juego
 
