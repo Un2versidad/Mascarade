@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/77cb59e1-a55f-41ec-8252-b7d3e3e8e37c)
+
 # 🎴 Mascarade (Estructura de Datos)
 
 **Mascarade** es un emocionante juego de engaño y deducción para 2 a 13 jugadores, diseñado por Bruno Faidutti. En este proyecto, se implementa el juego utilizando estructuras de datos en Python para manejar jugadores, cartas y las reglas del juego.
@@ -98,14 +100,6 @@ Cada personaje tiene un poder único:
 ## 🙏 Créditos
 
 - **Autor del Juego**: Bruno Faidutti  
-- **Desarrollo y Diseño**: "Los belgas con Sombrero" (Cédric Caumont & Thomas Provoost)  
-- **Ilustraciones**: Jérémy Masson  
-- **Diseño Gráfico**: Eric Azagury & Alexis Vanmeerbeeck  
-- **Revisión de Reglas**: Ann Pichot, Frédéric Bizet  
-- **Traducción**: Haritz Solana  
-
-**Agradecimientos Especiales**:
-- Hervé Marly, Alain Pissinier, Bruno Cathala, Tibi, Freddy, Eric J., Marcus, Murielle, Alexis K., Philippe K., Yves Dohogne, Romain, los supervivientes de Belgo 14, Fabien Ducat, Eric Hanuise, Christward Conrad, Jean-François Dejoie, Elfine, Gwendoline, Tanguy, Helène y Brigitte.
 
 ## 📜 Licencia
 
