@@ -86,7 +86,7 @@
        - Si aciertas, usas el poder del personaje. ✅  
        - Si fallas, pagas una multa al Palacio de Justicia. ❌  
 
-### **Poderes de los Personajes** 🦸‍♂️🦸‍♀️
+### **Poderes de algunos de los Personajes** 🦸‍♂️🦸‍♀️
 Cada personaje tiene un poder único:
 - **Juez**: Recoge todas las monedas del Palacio de Justicia. 🏛️💸  
 - **Rey**: Obtiene 3 monedas del Banco. 👑💰  
