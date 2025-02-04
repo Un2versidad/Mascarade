@@ -172,8 +172,7 @@ class Juego:
                         if eleccion not in ["1", "2"]:
                             print("Selección no válida. Debes elegir entre tus cartas izquierda o derecha.")
                             continue
-                        carta_seleccionada = jugador.cartas[int(eleccion) - 1]
-                        self.usar_habilidad_con_carta(jugador, carta_seleccionada)
+                        self.usar_habilidad(jugador)
                     else:
                         self.usar_habilidad(jugador)
                     break
@@ -237,39 +236,6 @@ class Juego:
         except IndexError:
             print("Error: No hay cartas disponibles para intercambiar. Intenta de nuevo.")
 
-    def usar_habilidad_con_carta(self, jugador, carta_seleccionada):
-        habilidad_declarada = carta_seleccionada.habilidad
-        print(f"{jugador.nombre} declara la habilidad de {carta_seleccionada}.")
-
-        # Preguntar a otros jugadores si quieren refutar
-        refutadores = []
-        for otro_jugador in self.jugadores:
-            if otro_jugador != jugador and otro_jugador.esta_vivo():
-                refutar = input(
-                    f"{otro_jugador.nombre}, ¿quieres refutar la habilidad de {carta_seleccionada}? (sí/no): "
-                ).strip().lower()
-                if refutar in ["si", "sí", "yes", "y"]:
-                    refutadores.append(otro_jugador)
-                    print(f"{otro_jugador.nombre} ha decidido refutar.")
-
-        # Verificar si la habilidad declarada es válida
-        habilidad_en_posesion = any(carta.habilidad == habilidad_declarada for carta in jugador.cartas)
-        if refutadores:
-            if habilidad_en_posesion:
-                print(f"{jugador.nombre} estaba usando la habilidad correcta. Los que refutaron pierden 1 oro.")
-                for refutador in refutadores:
-                    refutador.oro = max(0, refutador.oro - 1)
-                    print(f"{refutador.nombre} pierde 1 oro. (Oro actual: {refutador.oro})")
-                carta_seleccionada.usar_habilidad(jugador, self.jugadores, self.corte)
-            else:
-                print(
-                    f"{jugador.nombre} intentó usar una habilidad que no está en su poder. Debe pagar 1 oro a la corte.")
-                jugador.oro -= 1
-                self.corte.depositar(1)
-        else:
-            print(f"Nadie ha refutado. {jugador.nombre} usa la habilidad {carta_seleccionada}.")
-            carta_seleccionada.usar_habilidad(jugador, self.jugadores, self.corte)
-
     def usar_habilidad(self, jugador):
         if not jugador.cartas and not self.cartas_mesa:
             print(f"{jugador.nombre} no tiene cartas para usar habilidades.")
@@ -284,7 +250,7 @@ class Juego:
             eleccion_habilidad = int(input("Seleccione un número para declarar la habilidad que quiere usar: ")) - 1
             if 0 <= eleccion_habilidad < len(cartas_disponibles):
                 carta_seleccionada = cartas_disponibles[eleccion_habilidad]
-                self.usar_habilidad_con_carta(jugador, carta_seleccionada)
+                habilidad_declarada = carta_seleccionada.habilidad
 
                 if carta_seleccionada.nombre == "El Campesino":
                     self.campesinos_revelados += 1
@@ -307,7 +273,7 @@ class Juego:
                             print(f"{otro_jugador.nombre} ha decidido refutar.")
 
                 # Verificar si la habilidad declarada es válida
-                habilidad_en_posesion = any(carta.habilidad == carta_seleccionada for carta in jugador.cartas)
+                habilidad_en_posesion = any(carta.habilidad == habilidad_declarada for carta in jugador.cartas)
 
                 if refutadores:
                     if habilidad_en_posesion:
